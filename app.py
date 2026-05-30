@@ -2,11 +2,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 
 from src.rag_pipeline import run_pipeline
 
 
 def main() -> None:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
     parser = argparse.ArgumentParser(description="PDF RAG token optimization POC")
     parser.add_argument("--pdf", default="data/sample.pdf", help="Path to PDF file")
     parser.add_argument("--query", required=True, help="Question to retrieve context for")
@@ -36,7 +40,8 @@ def main() -> None:
     for item in result.retrieved_chunks:
         print(
             f"{item.chunk.id} | score={item.score:.3f} | "
-            f"tokens={item.chunk.token_count}"
+            f"vector={item.vector_score:.3f} | keyword={item.keyword_score:.3f} | "
+            f"quality={item.quality_score:.3f} | tokens={item.chunk.token_count}"
         )
 
     print("\nToken usage")

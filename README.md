@@ -71,7 +71,10 @@ python app.py `
 
 - Chunk sizes are constrained to `128`, `256`, or `512` tokens.
 - Default overlap is `10%` of chunk size, capped at `48` tokens.
-- Retrieval first ranks by vector similarity, then packs chunks until `context_budget` is reached.
+- Retrieval combines vector similarity, BM25-style keyword scoring, and quality heuristics.
+- TOC/index-like chunks, tiny chunks, table/figure-heavy chunks, and weak matches are penalized.
+- Definition-style queries such as `What is service mesh?` boost answer-bearing passages and their immediate continuation.
+- Chunks are packed only while they clear a relevance floor and fit under `context_budget`.
 - The final output reports query tokens, context tokens, prompt tokens, answer budget, and estimated total tokens.
 
 ## Experiments

@@ -13,7 +13,9 @@ def extract_text(pdf_path: str | Path) -> str:
         raise ValueError(f"Expected a .pdf file, got: {path}")
 
     try:
-        from pypdf import PdfReader
+        from importlib import import_module
+
+        PdfReader = import_module("pypdf").PdfReader
     except ImportError as exc:
         raise RuntimeError("Install dependencies first: pip install -r requirements.txt") from exc
 
