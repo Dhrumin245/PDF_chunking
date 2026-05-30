@@ -1,0 +1,8 @@
+{
+  "name": "chunk_size_128",
+  "chunk_size": 128,
+  "top_k": 5,
+  "context_budget": 600,
+  "answer_budget": 200,
+  "expected_tradeoff": "Lowest prompt cost; best for direct factual questions."
+}

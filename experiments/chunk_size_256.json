@@ -1,0 +1,8 @@
+{
+  "name": "chunk_size_256",
+  "chunk_size": 256,
+  "top_k": 5,
+  "context_budget": 900,
+  "answer_budget": 200,
+  "expected_tradeoff": "Balanced retrieval precision and context completeness."
+}

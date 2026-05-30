@@ -1,0 +1,8 @@
+{
+  "name": "chunk_size_512",
+  "chunk_size": 512,
+  "top_k": 4,
+  "context_budget": 1200,
+  "answer_budget": 250,
+  "expected_tradeoff": "More context per chunk; useful for narrative sections but higher token cost."
+}

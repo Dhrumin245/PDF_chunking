@@ -1,0 +1,4 @@
+experiment,chunk_size,top_k,context_budget,total_chunks,retrieved_chunks,query_tokens,context_tokens,prompt_tokens,estimated_total_tokens,notes
+chunk_size_128,128,5,600,,,,,,,
+chunk_size_256,256,5,900,,,,,,,
+chunk_size_512,512,4,1200,,,,,,,
